@@ -1,0 +1,100 @@
+/* Parent container: Holds all job announcements */
+.joblistdiv {
+  display: flex;
+  flex-direction: column; /* Stack jobs vertically */
+  align-items: center; /* Center content horizontally */
+  gap: 16px; /* Add spacing between job cards */
+  padding: 16px;
+  width: 100%;
+}
+
+/* Each job card */
+.jobdiv {
+  display: flex;
+  flex-direction: column; /* Stack content inside */
+  align-items: center; /* Center items */
+  background: #ffffff; /* White background */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  width: 90%; /* Almost full width for mobile */
+  max-width: 400px; /* Limit width on larger screens */
+}
+
+.jobdiv:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Job title */
+h2 {
+  font-size: 18px;
+
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+/* Job image */
+.jobdiv img {
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+/* Job details */
+p {
+  font-size: 14px;
+
+  margin: 4px 0;
+  text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.input {
+  width: 350px;
+  height: 25px;
+  border: 1px solid black;
+  outline: none;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.input:hover {
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 1000;
+}
+
+.job-details button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.job-list .job-item {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px 0;
+}
