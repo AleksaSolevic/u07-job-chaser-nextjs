@@ -5,6 +5,7 @@ import SearchBar from "./components/SearchBar";
 import JobDetails from "./components/JobDetails";
 import { AllJobProps } from "../../types/types";
 import "./page.css";
+import Link from "next/link";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -12,7 +13,6 @@ function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedJob, setSelectedJob] = useState<AllJobProps | null>(null);
 
-  // Fetch jobs data in the parent component
   useEffect(() => {
     fetch("/jobs.json")
       .then((response) => response.json())
@@ -42,6 +42,7 @@ function Home() {
 
   return (
     <>
+      <Link href="/signin"> Log in</Link>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       {selectedJob ? (
         <JobDetails job={selectedJob} onClose={handleCloseDetails} />

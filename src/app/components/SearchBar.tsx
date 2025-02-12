@@ -7,13 +7,7 @@ export default function SearchBar({
   return (
     <>
       <header className="header">
-        <Image
-          src="/logo.jpg"
-          layout="intrinsic"
-          width={100}
-          height={100}
-          alt="Logo"
-        />
+        <Image src="/logo.jpg" width={100} height={100} alt="Logo" />
 
         <input
           className="input"

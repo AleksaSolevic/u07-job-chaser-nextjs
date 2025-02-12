@@ -1,6 +1,6 @@
 import React from "react";
 import { AllJobProps } from "../../../types/types";
-
+import Image from "next/image";
 interface JobDetailsProps {
   job: AllJobProps;
   onClose: () => void;
@@ -9,8 +9,9 @@ interface JobDetailsProps {
 const JobDetails: React.FC<JobDetailsProps> = ({ job, onClose }) => {
   return (
     <div className="job-details">
-      <button onClick={onClose}>Close</button>
+      <button onClick={onClose}>X</button>
       <h2>{job.position}</h2>
+      <Image src={job.logo} width={100} height={100} alt={job.company} />
       <p>Company: {job.company}</p>
       <p>Location: {job.location}</p>
       <p>Contract: {job.contract}</p>
