@@ -13,6 +13,7 @@ function Home() {
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedJob, setSelectedJob] = useState<AllJobProps | null>(null);
 
+  // Fetch jobs data in the parent component
   useEffect(() => {
     fetch("/jobs.json")
       .then((response) => response.json())

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function SignIn() {
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex justify-center border-r-8 items-center h-screen bg-gray-100">
       <form className="bg-white p-6 rounded shadow-md w-80">
         <h2 className="text-xl font-bold mb-4">Sign In</h2>
 

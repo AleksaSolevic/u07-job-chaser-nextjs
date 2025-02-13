@@ -17,14 +17,20 @@ const JobList: React.FC<JobListComponentProps> = ({
   }
 
   return (
-    <div className="job-list">
+    <>
       {jobs.map((job) => (
-        <div key={job.id} className="job-item" onClick={() => onJobClick(job)}>
-          <Image src={job.logo} width={100} height={100} alt={job.company} />
-          <p>
-            <strong>Company: </strong>
-            {job.company}
-          </p>
+        <div
+          key={job.id}
+          className="job-list-div"
+          onClick={() => onJobClick(job)}
+        >
+          <div>
+            <Image src={job.logo} width={50} height={50} alt={job.company} />
+            <p>
+              <strong>Company: </strong>
+              {job.company}
+            </p>
+          </div>
           <div className="position-location">
             <p>
               <strong>Position: </strong>
@@ -37,7 +43,7 @@ const JobList: React.FC<JobListComponentProps> = ({
           </div>
         </div>
       ))}
-    </div>
+    </>
   );
 };
 

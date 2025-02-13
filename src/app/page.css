@@ -1,27 +1,23 @@
-/* Parent container: Holds all job announcements */
-.joblistdiv {
+.body {
+  height: 100vh;
+  width: auto;
+}
+.job-list-div {
+  background-color: white;
+  color: black;
   display: flex;
-  flex-direction: column; /* Stack jobs vertically */
-  align-items: center; /* Center content horizontally */
-  gap: 16px; /* Add spacing between job cards */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 16px;
-  width: 100%;
+  max-width: 350px;
+  gap: 5px;
+  cursor: pointer;
+  border: 1px solid black;
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Each job card */
-.jobdiv {
-  display: flex;
-  flex-direction: column; /* Stack content inside */
-  align-items: center; /* Center items */
-  background: #ffffff; /* White background */
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-  width: 90%; /* Almost full width for mobile */
-  max-width: 400px; /* Limit width on larger screens */
-}
-
-.jobdiv:hover {
+.job-list-div:hover {
   transform: scale(1.05);
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -34,12 +30,6 @@ h2 {
   font-weight: bold;
   margin-bottom: 8px;
   text-align: center;
-}
-
-/* Job image */
-.jobdiv img {
-  margin-bottom: 8px;
-  border-radius: 4px;
 }
 
 /* Job details */
@@ -55,9 +45,29 @@ p {
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  width: auto;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.search-button {
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 8px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-color: #005bb5;
 }
 .input {
   width: 350px;
@@ -70,26 +80,32 @@ p {
 
 .input:hover {
   color: black;
-  transform: scale(1.05);
+
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .job-details {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   position: fixed;
+  gap: 5px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
   padding: 20px;
+  color: black;
   border: 1px solid #ccc;
   z-index: 1000;
 }
 
 .job-details button {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
 }
 
 .job-list .job-item {
