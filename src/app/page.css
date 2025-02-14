@@ -1,8 +1,46 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
 .body {
   height: 100vh;
   width: auto;
 }
-.job-list-div {
+.light {
+  background-color: white;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+.light .header {
+  background-color: white;
+  color: black;
+}
+.dark .header {
+  background-color: black;
+  color: white;
+}
+.dark .signInContainer {
+  background-color: black;
+  color: white;
+}
+.light .signInContainer {
+  background-color: white;
+  color: black;
+}
+.dark .sign-up-container {
+  background-color: black;
+  color: white;
+}
+.light .sign-up-container {
+  background-color: white;
+  color: black;
+}
+.job-list-container {
   background-color: white;
   color: black;
   display: flex;
@@ -17,7 +55,7 @@
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-.job-list-div:hover {
+.job-list-container:hover {
   transform: scale(1.05);
   box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -40,35 +78,6 @@ p {
   text-align: center;
 }
 
-.header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  width: auto;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-.search-container {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  overflow: hidden;
-}
-
-.search-button {
-  border: none;
-  background-color: #0070f3;
-  color: white;
-  border-radius: 8px;
-  padding: 2px;
-  cursor: pointer;
-}
-
-.search-button:hover {
-  background-color: #005bb5;
-}
 .input {
   width: 350px;
   height: 25px;

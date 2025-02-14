@@ -6,7 +6,7 @@ export default function SearchBar({
 }: SearchBarProps) {
   return (
     <>
-      <header className="header">
+      <div className="search-bar">
         <Image src="/logo.jpg" width={100} height={100} alt="Logo" />
 
         <input
@@ -16,7 +16,7 @@ export default function SearchBar({
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
         />
-      </header>
+      </div>
     </>
   );
 }

@@ -5,26 +5,30 @@ import SearchBar from "./components/SearchBar";
 import JobDetails from "./components/JobDetails";
 import { AllJobProps } from "../../types/types";
 import "./page.css";
-import Link from "next/link";
+import { useTheme } from "./components/ThemeContext";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [jobs, setJobs] = useState<AllJobProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedJob, setSelectedJob] = useState<AllJobProps | null>(null);
+  const { theme } = useTheme();
 
-  // Fetch jobs data in the parent component
   useEffect(() => {
-    fetch("/jobs.json")
-      .then((response) => response.json())
-      .then((data: AllJobProps[]) => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch("/jobs.json");
+        if (!response.ok) throw new Error("Failed to fetch jobs");
+        const data: AllJobProps[] = await response.json();
         setJobs(data);
-        setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error loading jobs:", error);
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+
+    fetchJobs();
   }, []);
 
   const filteredJobs = jobs.filter((job) => {
@@ -42,8 +46,7 @@ function Home() {
   };
 
   return (
-    <>
-      <Link href="/signin"> Log in</Link>
+    <div className={theme}>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       {selectedJob ? (
         <JobDetails job={selectedJob} onClose={handleCloseDetails} />
@@ -54,7 +57,7 @@ function Home() {
           onJobClick={handleJobClick}
         />
       )}
-    </>
+    </div>
   );
 }
 
