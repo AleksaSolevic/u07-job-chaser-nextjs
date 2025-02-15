@@ -8,31 +8,35 @@ interface JobDetailsProps {
 
 const JobDetails: React.FC<JobDetailsProps> = ({ job, onClose }) => {
   return (
-    <div className="job-details">
-      <button onClick={onClose}>X</button>
-      <h2>{job.position}</h2>
-      <Image src={job.logo} width={100} height={100} alt={job.company} />
-      <p>
-        <strong>Company: </strong> {job.company}
-      </p>
-      <p>
-        <strong>Location: </strong> {job.location}
-      </p>
-      <p>
-        <strong>Contract: </strong> {job.contract}
-      </p>
-      <p>
-        <strong>Level: </strong> {job.level}
-      </p>
-      <p>
-        <strong>Posted at: </strong> {job.postedAt}
-      </p>
-      <p>
-        <strong>Languages: </strong> {job.languages.join(", ")}
-      </p>
-      <p>
-        <strong>Tools: </strong> {job.tools.join(", ")}
-      </p>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="job-details" onClick={(e) => e.stopPropagation()}>
+        <button className="close-btn" onClick={onClose}>
+          X
+        </button>
+        <Image src={job.logo} width={75} height={75} alt={job.company} />
+        <h2 className="mb-7">{job.position}</h2>
+        <p>
+          <strong>Company:</strong> {job.company}
+        </p>
+        <p>
+          <strong>Location:</strong> {job.location}
+        </p>
+        <p>
+          <strong>Contract:</strong> {job.contract}
+        </p>
+        <p>
+          <strong>Level:</strong> {job.level}
+        </p>
+        <p>
+          <strong>Posted at:</strong> {job.postedAt}
+        </p>
+        <p>
+          <strong>Languages:</strong> {job.languages.join(", ")}
+        </p>
+        <p>
+          <strong>Tools:</strong> {job.tools.join(", ")}
+        </p>
+      </div>
     </div>
   );
 };

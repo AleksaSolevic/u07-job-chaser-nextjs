@@ -37,7 +37,7 @@ export default function SignIn() {
 
       <Link
         href="/"
-        className="absolute bottom-10 text-gray-600 hover:text-gray-900 transition"
+        className="absolute bottom-5 text-gray-600 hover:text-gray-900 transition"
       >
         Back to Job-chaser?
       </Link>

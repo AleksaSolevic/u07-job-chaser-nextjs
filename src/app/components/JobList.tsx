@@ -18,33 +18,51 @@ const JobList: React.FC<JobListComponentProps> = ({
 
   return (
     <>
-      <div className="job-list-container">
+      <ul className="job-list-container">
         {jobs.map((job) => (
-          <div
+          <li
             key={job.id}
             className="job-list-item"
             onClick={() => onJobClick(job)}
           >
-            <div className="company-logo">
-              <Image src={job.logo} width={50} height={50} alt={job.company} />
-              <p>
-                <strong>Company: </strong>
-                {job.company}
-              </p>
-            </div>
-            <div className="position-location">
-              <p>
-                <strong>Position: </strong>
-                {job.position}
-              </p>
-              <p>
-                <strong>Location: </strong>
-                {job.location}
-              </p>
-            </div>
-          </div>
+            <article>
+              <figure className="company-logo">
+                <Image
+                  src={job.logo}
+                  width={50}
+                  height={50}
+                  alt={`${job.company} logo`}
+                />
+                <figcaption>
+                  <strong>Company: </strong>
+                  {job.company}
+                </figcaption>
+              </figure>
+
+              {/* Position and Location */}
+              <div className="position-location">
+                <p>
+                  <strong>Position: </strong>
+                  {job.position}
+                </p>
+                <p>
+                  <strong>Location: </strong>
+                  {job.location}
+                </p>
+              </div>
+
+              {/* View Job Button (Better for Navigation) */}
+              <button
+                className="view-job-btn"
+                onClick={() => onJobClick(job)}
+                aria-label={`View job details for ${job.position} at ${job.company}`}
+              >
+                View Job
+              </button>
+            </article>
+          </li>
         ))}
-      </div>
+      </ul>
     </>
   );
 };
