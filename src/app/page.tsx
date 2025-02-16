@@ -6,6 +6,7 @@ import JobDetails from "./components/JobDetails";
 import { AllJobProps } from "../../types/types";
 import "./page.css";
 import { useTheme } from "./components/ThemeContext";
+import Image from "next/image";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState<string>("");
@@ -48,8 +49,23 @@ function Home() {
   return (
     <div className={theme}>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+
       {selectedJob ? (
         <JobDetails job={selectedJob} onClose={handleCloseDetails} />
+      ) : loading ? (
+        <p className="text-center text-gray-500">Loading jobs...</p>
+      ) : filteredJobs.length === 0 ? (
+        <div className="flex flex-col items-center mt-6">
+          <Image
+            src="/react.svg"
+            width={200}
+            height={200}
+            alt="No jobs found"
+          />
+          <p className="text-center text-gray-600 font-semibold mt-4">
+            No jobs available. Build a React app first, then come back!
+          </p>
+        </div>
       ) : (
         <JobList
           jobs={filteredJobs}

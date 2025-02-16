@@ -49,7 +49,7 @@
 }
 
 .input {
-  width: 350px;
+  min-width: 350px;
   height: 40px;
   border: 1px solid black;
   outline: none;
