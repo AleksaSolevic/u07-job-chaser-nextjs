@@ -1,8 +1,7 @@
 "use client";
-import React from "react";
 import { useTheme } from "./ThemeContext";
 
-const ThemeToggle: React.FC = () => {
+export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -13,6 +12,4 @@ const ThemeToggle: React.FC = () => {
       {theme === "light" ? "Dark Mode" : "Light Mode"}
     </button>
   );
-};
-
-export default ThemeToggle;
+}
