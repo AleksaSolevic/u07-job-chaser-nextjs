@@ -24,7 +24,7 @@ export default function SignIn() {
           type="submit"
           className="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition-all duration-300"
         >
-          Sign in
+          <Link href="/">Sign in</Link>
         </button>
 
         <p className="mt-4 text-center text-gray-700">
@@ -37,7 +37,7 @@ export default function SignIn() {
 
       <Link
         href="/"
-        className="absolute bottom-5 text-gray-600 hover:text-gray-900 transition"
+        className="absolute bottom-5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition"
       >
         Back to Job-chaser?
       </Link>

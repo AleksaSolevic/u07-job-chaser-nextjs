@@ -1,6 +1,7 @@
 import React from "react";
 import { AllJobProps } from "../../../types/types";
 import Image from "next/image";
+import Loader from "./Loader";
 interface JobListComponentProps {
   jobs: AllJobProps[];
   loading: boolean;
@@ -13,7 +14,7 @@ const JobList: React.FC<JobListComponentProps> = ({
   onJobClick,
 }) => {
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loader loading={loading} />;
   }
 
   return (
@@ -39,7 +40,6 @@ const JobList: React.FC<JobListComponentProps> = ({
                 </figcaption>
               </figure>
 
-              {/* Position and Location */}
               <div className="position-location">
                 <p>
                   <strong>Position: </strong>
