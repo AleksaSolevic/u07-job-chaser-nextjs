@@ -50,8 +50,6 @@ const JobList: React.FC<JobListComponentProps> = ({
                   {job.location}
                 </p>
               </div>
-
-              {/* View Job Button (Better for Navigation) */}
               <button
                 className="view-job-btn"
                 onClick={() => onJobClick(job)}

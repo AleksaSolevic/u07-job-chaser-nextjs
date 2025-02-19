@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import JobList from "./components/JobList";
 import SearchBar from "./components/SearchBar";
 import JobDetails from "./components/JobDetails";
+import FilterJobs from "./components/FilterJobs";
 import { AllJobProps } from "../../types/types";
 import "./page.css";
 import { useTheme } from "./components/ThemeContext";
@@ -11,6 +12,7 @@ import Image from "next/image";
 function Home() {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [jobs, setJobs] = useState<AllJobProps[]>([]);
+  const [filteredJobs, setFilteredJobs] = useState<AllJobProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedJob, setSelectedJob] = useState<AllJobProps | null>(null);
   const { theme } = useTheme();
@@ -22,6 +24,7 @@ function Home() {
         if (!response.ok) throw new Error("Failed to fetch jobs");
         const data: AllJobProps[] = await response.json();
         setJobs(data);
+        setFilteredJobs(data); // ✅ Initialize filteredJobs with all jobs
       } catch (error) {
         console.error("Error loading jobs:", error);
       } finally {
@@ -31,12 +34,6 @@ function Home() {
 
     fetchJobs();
   }, []);
-
-  const filteredJobs = jobs.filter((job) => {
-    return Object.values(job).some((value) =>
-      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
-    );
-  });
 
   const handleJobClick = (job: AllJobProps) => {
     setSelectedJob(job);
@@ -49,7 +46,7 @@ function Home() {
   return (
     <div className={theme}>
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
+      <FilterJobs jobs={jobs} setFilteredJobs={setFilteredJobs} />
       {selectedJob ? (
         <JobDetails job={selectedJob} onClose={handleCloseDetails} />
       ) : loading ? (
